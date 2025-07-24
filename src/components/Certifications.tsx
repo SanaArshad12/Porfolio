@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { FaCertificate, FaAward, FaTrophy, FaCode, FaRobot, FaUniversity, FaGraduationCap } from 'react-icons/fa';
-import { SiJavascript, SiReact, SiNodedotjs, SiWordpress } from 'react-icons/si';
+import { SiJavascript, SiReact, SiNodedotjs } from 'react-icons/si';
 
 interface Certification {
   title: string;
@@ -232,3 +232,4 @@ const Certifications: React.FC = () => {
 };
 
 export default Certifications;
+

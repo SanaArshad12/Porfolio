@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaEnvelope, FaDownload, FaCode, FaWhatsapp, FaShare } from 'react-icons/fa';
+import { FaGithub, FaEnvelope, FaCode, FaWhatsapp, FaShare } from 'react-icons/fa';
 import { SiReact, SiNodedotjs, SiMongodb, SiExpress, SiJavascript, SiTypescript } from 'react-icons/si';
 
 const Hero: React.FC = () => {
@@ -306,3 +306,6 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
+
+

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FaGraduationCap, FaBriefcase, FaCode, FaSearch, FaJava } from 'react-icons/fa';
 import { SiReact, SiNodedotjs, SiMongodb, SiExpress, SiJavascript, SiTypescript, SiHtml5, SiCss3, SiBootstrap, SiWordpress, SiCplusplus, SiPython } from 'react-icons/si';
 
@@ -24,23 +24,6 @@ const About: React.FC = () => {
     { name: 'Bootstrap', icon: SiBootstrap, level: 85, color: '#7952B3' },
     { name: 'WordPress', icon: SiWordpress, level: 88, color: '#21759B' },
     { name: 'SEO', icon: FaSearch, level: 85, color: '#4285F4' },
-  ];
-
-  const education = [
-    {
-      degree: 'BS Computer Science',
-      institution: 'National University Of Management and Technology',
-      year: '2020-2024',
-      icon: FaGraduationCap,
-      description: 'Specialized in software engineering and web development'
-    },
-    {
-      degree: 'Intermediate Pre-Medical',
-      institution: 'Minhaj College',
-      year: '2018-2020',
-      icon: FaGraduationCap,
-      description: 'Foundation in sciences before transitioning to computer science'
-    }
   ];
 
   const experience = [
@@ -107,7 +90,7 @@ const About: React.FC = () => {
                 Programming Languages
               </h4>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                {programmingSkills.map((skill, index) => (
+                {programmingSkills.map((skill) => (
                   <div key={skill.name} className="bg-slate-600 rounded-lg p-4 text-center hover:bg-slate-500 transition-colors">
                     <skill.icon style={{ color: skill.color }} size={32} className="mx-auto mb-2" />
                     <h4 className="text-white font-medium text-sm">{skill.name}</h4>
@@ -124,7 +107,7 @@ const About: React.FC = () => {
                 Development & Frameworks
               </h4>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                {(showAllSkills ? devSkills : devSkills.slice(0, 6)).map((skill, index) => (
+                {(showAllSkills ? devSkills : devSkills.slice(0, 6)).map((skill) => (
                   <div key={skill.name} className="bg-slate-600 rounded-lg p-4 text-center hover:bg-slate-500 transition-colors">
                     <skill.icon style={{ color: skill.color }} size={32} className="mx-auto mb-2" />
                     <h4 className="text-white font-medium text-sm">{skill.name}</h4>

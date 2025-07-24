@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FaExternalLinkAlt, FaGithub, FaCode, FaEye } from 'react-icons/fa';
 import { SiReact, SiNodedotjs, SiJavascript, SiHtml5, SiCss3, SiBootstrap, SiWordpress } from 'react-icons/si';
 

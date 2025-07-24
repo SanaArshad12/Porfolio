@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const ScrollProgress: React.FC = () => {
@@ -24,14 +24,16 @@ const ScrollProgress: React.FC = () => {
     >
       <motion.div
         className="h-full bg-gradient-to-r from-purple-500 to-pink-500"
-        style={{ scaleX: scrollProgress }}
+        style={{ 
+          scaleX: scrollProgress,
+        }}
         initial={{ scaleX: 0 }}
         animate={{ scaleX: scrollProgress }}
         transition={{ duration: 0.1 }}
-        transformOrigin="left"
       />
     </motion.div>
   );
 };
 
 export default ScrollProgress;
+

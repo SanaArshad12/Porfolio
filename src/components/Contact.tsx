@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaPaperPlane, FaUser, FaComment } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaGithub, FaPaperPlane, FaUser, FaComment } from 'react-icons/fa';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -284,3 +284,7 @@ const Contact: React.FC = () => {
 };
 
 export default Contact;
+
+
+
+

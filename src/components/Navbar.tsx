@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes, FaCode, FaDownload } from 'react-icons/fa';
 import resumePDF from '../assets/SANA RESUME.pdf';
