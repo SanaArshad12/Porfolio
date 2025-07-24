@@ -1,4 +1,3 @@
-import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -9,6 +8,7 @@ import ScrollToTop from './components/ScrollToTop';
 import ScrollProgress from './components/ScrollProgress';
 import { FaHeart, FaCode, FaGithub, FaEnvelope } from 'react-icons/fa';
 
+// Portfolio App Component
 function App() {
   return (
     <div className="App bg-slate-900 text-white overflow-x-hidden">
@@ -128,3 +128,8 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
