@@ -10,11 +10,12 @@ interface Certification {
   description: string;
   icon: any;
   color: string;
-  category: 'web-dev' | 'programming' | 'academic' | 'other';
+  skills?: string[];
+  category: string;
   verified?: boolean;
 }
 
-const Certifications: React.FC = () => {
+const Certifications = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 

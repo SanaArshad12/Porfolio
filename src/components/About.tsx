@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FaGraduationCap, FaBriefcase, FaCode, FaSearch, FaJava } from 'react-icons/fa';
 import { SiReact, SiNodedotjs, SiMongodb, SiExpress, SiJavascript, SiTypescript, SiHtml5, SiCss3, SiBootstrap, SiWordpress, SiCplusplus, SiPython } from 'react-icons/si';
 
-const About: React.FC = () => {
+const About = () => {
   const [showAllSkills, setShowAllSkills] = useState(false);
 
   // Split skills into programming and development

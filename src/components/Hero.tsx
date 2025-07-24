@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaEnvelope, FaCode, FaWhatsapp, FaShare } from 'react-icons/fa';
 import { SiReact, SiNodedotjs, SiMongodb, SiExpress, SiJavascript, SiTypescript } from 'react-icons/si';
 
-const Hero: React.FC = () => {
+const Hero = () => {
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);

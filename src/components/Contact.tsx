@@ -1,8 +1,9 @@
 import { useState, useRef } from 'react';
+import type { FormEvent, ChangeEvent } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { FaEnvelope, FaPhone, FaGithub, FaPaperPlane, FaUser, FaComment } from 'react-icons/fa';
 
-const Contact: React.FC = () => {
+const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,7 +15,7 @@ const Contact: React.FC = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -48,7 +49,7 @@ const Contact: React.FC = () => {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value

@@ -14,7 +14,7 @@ interface Project {
   status: 'completed' | 'in-progress' | 'planned';
 }
 
-const Projects: React.FC = () => {
+const Projects = () => {
   const [showAll, setShowAll] = useState(false);
 
   const projects: Project[] = [
