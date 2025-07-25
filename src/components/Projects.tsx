@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaExternalLinkAlt, FaGithub, FaCode, FaEye } from 'react-icons/fa';
 import { SiReact, SiNodedotjs, SiJavascript, SiHtml5, SiCss3, SiBootstrap, SiWordpress } from 'react-icons/si';
 
@@ -16,6 +16,18 @@ interface Project {
 
 const Projects = () => {
   const [showAll, setShowAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   const projects: Project[] = [
     {
@@ -130,7 +142,11 @@ const Projects = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {(showAll ? projects : projects.slice(0, 6)).map((project, index) => (
+          {/* Show 3 on mobile, 6 on desktop */}
+          {(showAll 
+            ? projects 
+            : projects.slice(0, isMobile ? 3 : 6)
+          ).map((project, index) => (
             <div
               key={index}
               className="bg-slate-800 rounded-lg overflow-hidden border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300"
@@ -191,14 +207,14 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Show More Button - Subtle & Right Aligned */}
-        {projects.length > 6 && (
-          <div className="flex justify-end mt-8">
+        {/* Show More Button - Responsive */}
+        {((isMobile && projects.length > 3) || (!isMobile && projects.length > 6)) && (
+          <div className="flex justify-center md:justify-end mt-8">
             <button
               onClick={() => setShowAll(!showAll)}
               className="group flex items-center gap-2 px-4 py-2 text-gray-400 hover:text-purple-400 transition-all duration-300 text-sm font-medium border border-gray-600/50 hover:border-purple-500/50 rounded-lg bg-slate-800/30 hover:bg-slate-700/50 backdrop-blur-sm"
             >
-              <span>{showAll ? 'Show Less' : `Show ${projects.length - 6} More`}</span>
+              <span>{showAll ? 'Show Less' : `Show ${projects.length - (isMobile ? 3 : 6)} More`}</span>
               <FaEye size={12} className="group-hover:scale-110 transition-transform opacity-70" />
             </button>
           </div>

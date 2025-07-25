@@ -1,6 +1,6 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { FaCertificate, FaAward, FaTrophy, FaCode, FaRobot, FaUniversity, FaGraduationCap } from 'react-icons/fa';
+import { FaCertificate, FaAward, FaTrophy, FaCode, FaRobot, FaUniversity, FaGraduationCap, FaEye } from 'react-icons/fa';
 import { SiJavascript, SiReact, SiNodedotjs } from 'react-icons/si';
 
 interface Certification {
@@ -18,6 +18,19 @@ interface Certification {
 const Certifications = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [showAll, setShowAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   const certifications: Certification[] = [
     {
@@ -138,7 +151,7 @@ const Certifications = () => {
             variants={containerVariants}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {certifications.map((cert, index) => (
+            {(showAll ? certifications : certifications.slice(0, isMobile ? 3 : 6)).map((cert, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
@@ -203,6 +216,19 @@ const Certifications = () => {
               </motion.div>
             ))}
           </motion.div>
+
+          {/* Show More Button - Responsive */}
+          {((isMobile && certifications.length > 3) || (!isMobile && certifications.length > 6)) && (
+            <motion.div variants={itemVariants} className="flex justify-center mt-8">
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="group flex items-center gap-2 px-4 py-2 text-gray-400 hover:text-purple-400 transition-all duration-300 text-sm font-medium border border-gray-600/50 hover:border-purple-500/50 rounded-lg bg-slate-800/30 hover:bg-slate-700/50 backdrop-blur-sm"
+              >
+                <span>{showAll ? 'Show Less' : `Show ${certifications.length - (isMobile ? 3 : 6)} More`}</span>
+                <FaEye size={12} className="group-hover:scale-110 transition-transform opacity-70" />
+              </button>
+            </motion.div>
+          )}
 
           {/* Call to Action */}
           <motion.div variants={itemVariants} className="text-center mt-16">
